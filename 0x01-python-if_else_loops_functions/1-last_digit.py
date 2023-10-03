@@ -1,8 +1,8 @@
 #!/usr/bin/python3
 import random
 number = random.randint(-10000, 10000)
-last = 0
-while number > 9:
+last = number
+while last > 9:
     last = number % 10
 if last == 0:
     print(f"Last digit of {number} is {last} and is 0")
