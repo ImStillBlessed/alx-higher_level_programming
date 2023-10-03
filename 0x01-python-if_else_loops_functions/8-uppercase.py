@@ -5,4 +5,5 @@ def uppercase(str):
             continue
         elif 96 < ord(ch) < 123:
             ch = ord(ch) - 32
-            print("{}" .format(ch))
+            print("{}" .format(chr(ch)), end="")
+    print("\n")
