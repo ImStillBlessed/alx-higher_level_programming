@@ -7,3 +7,4 @@ def uppercase(str):
             ch = ord(ch) - 32
             print("{}" .format(chr(ch)), end="")
     print("\n")
+# change the letters to upper first then, print the string 
