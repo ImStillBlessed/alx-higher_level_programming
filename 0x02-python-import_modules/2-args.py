@@ -1,7 +1,7 @@
 #!/usr/bin/python3
-import sys
+from sys import argv
 print("{} argument" .format((len(argv) - 1)), end="")
-if len(argv) = 2:
+if len(argv) == 2:
     print(":\n{}: {}" .format(1, argv[1]))
 elif len(argv) > 2:
     print("s:")
