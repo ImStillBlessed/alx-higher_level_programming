@@ -3,10 +3,11 @@ def divisible_by_2(my_list=[]):
     if not my_list:
         return my_list
     i = 0
+    new_list = []
     while i < len(my_list):
         if my_list[i] % 2 == 0:
-            my_list[i] = True
+            new_list[i] = True
         else:
-            my_list[i] = False
+            new_list[i] = False
         i += 1
-    return my_list
+    return new_list
