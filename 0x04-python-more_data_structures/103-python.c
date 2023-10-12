@@ -1,4 +1,4 @@
-nclude <Python.h>
+#include <Python.h>
 #include <stdio.h>
 #include <stdlib.h>
 
@@ -13,7 +13,7 @@ void print_python_bytes(PyObject *p) {
 
     printf("  first 10 bytes:");
     size_t i;
-    for (i = 0; i < 10 && i < Py_SIZE(bytes_obj); i++) {
+    for (i = 0; i < 10 && i < (size_t)Py_SIZE(bytes_obj); i++) {
         printf(" %02x", bytes_obj->ob_sval[i] & 0xff);
     }
     printf("\n");
