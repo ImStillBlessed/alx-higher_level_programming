@@ -1,5 +1,5 @@
-#ifndef MAIN_H
-#define MAIN_H
+#ifndef LISTS_H
+#define LISTS_H
 
 /**
  * struct dlistint_s - doubly linked list
@@ -30,5 +30,11 @@ int sum_dlistint(dlistint_t *head);
 dlistint_t *insert_dnodeint_at_index(dlistint_t **h, unsigned int idx, int n);
 int delete_dnodeint_at_index(dlistint_t **head, unsigned int index);
 
+/*
+ * libraries
+ */
+#include <stdlib.h>
+#include <stdio.h>
+#include <string.h>
 
-#endif /* MAIN_H */
+#endif /* LISTS_H */
