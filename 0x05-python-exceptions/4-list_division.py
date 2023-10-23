@@ -2,12 +2,12 @@
 def list_division(my_list_1, my_list_2, list_length):
     i = 0
     new_list = []
-    while i < list_lenght:
+    while i < list_length:
         result = 0
         try:
             result = my_list_1[i] / my_list_2[i]
-        except Exception:
-            result = 0
+        except Exception as err:
+            print(err)
         new_list.append(result)
         i += 1
     return new_list
