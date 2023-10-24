@@ -6,11 +6,11 @@ class Square:
     Attributes:
         __size (int): This is the size f the square
     """
-    def __inti__(self):
+    def __init__(self, size=0):
         """
-        the constructor for the square class
+        Constructs a square with the given size
 
         Args:
-            size (int): the size of the square.
+            size (int): the size of the square. Default of 0 if not provided
         """
         self.__size = size
