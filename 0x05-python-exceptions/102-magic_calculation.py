@@ -9,4 +9,4 @@ def magic_calculation(a, b):
             result += (a ** b) / i
         except Exception:
             result += a + b
-    return (result - 1)
+    return result
