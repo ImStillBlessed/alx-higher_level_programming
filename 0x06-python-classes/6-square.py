@@ -10,7 +10,7 @@ class Square:
     Attributes:
         __size (int): this is the size of the square.
     """
-    def __init__(self, size=0, position(0, 0)):
+    def __init__(self, size=0, position=(0, 0)):
         """
         Constructs a square with a given size and position.
 
@@ -25,6 +25,7 @@ class Square:
 		position.
         """
         self.size = size
+        self.position = position
 
     def my_print(self):
         """
@@ -73,9 +74,11 @@ class Square:
         Returns:
             int: the value of the __size attribute.
         """
-        return self.position
+        return self.__position
     @position.setter
     def position(self, value):
         if not isinstance(value, tuple) or len(value) != 2:
             raise TypeError("position must be a tuple of 2 positive integer")
-        self.position = value
+        if not all(isinstance(v, int) and v >= 0 for v in value):
+            raise TypeError("position must be a tuple of 2 positive integer")
+        self.__position = value
