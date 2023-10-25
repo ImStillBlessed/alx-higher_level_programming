@@ -32,7 +32,7 @@ class Square:
         This method prints the square using #
         """
         q = 0
-        while q < self.__position[0]:
+        while q < self.__position[1]:
             print("")
             q += 1
         i = 0
@@ -40,7 +40,7 @@ class Square:
             j = 0
             p = 0
             while j < self.__size:
-                while p < self.__position[1]:
+                while p < self.__position[0]:
                     print("_", end="")
                     p += 1
                 print("#", end="")
