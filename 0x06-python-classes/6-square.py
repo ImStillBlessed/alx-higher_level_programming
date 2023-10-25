@@ -31,10 +31,18 @@ class Square:
         """
         This method prints the square using #
         """
+        q = 0
+        while q < self.__position:
+            print("")
+            q += 1
         i = 0
         while i < self.__size:
             j = 0
             while j < self.__size:
+                p = 0
+                while p < self.__position[1]:
+                    print("_", end="")
+                    p += 1
                 print("#", end="")
                 j += 1
             print("")
