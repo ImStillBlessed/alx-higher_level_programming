@@ -1,3 +1,7 @@
+'''
+This module by Blessed
+ALXSE python clases
+'''
 #!/usr/bin/python3
 class Square:
     """
