@@ -1,8 +1,8 @@
+#!/usr/bin/python3
 """
 This module defines a square with private size
 by Oigbochie Blessed
 """
-#!/usr/bin/python3
 class Square:
     """
     This class defines a square
