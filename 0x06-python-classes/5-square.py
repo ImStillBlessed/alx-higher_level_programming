@@ -35,7 +35,7 @@ class Square:
                 j += 1
             print("")
             i += 1
-        if self.__size = 0:
+        if self.__size == 0:
             print("")
     @property
     def size(self):
