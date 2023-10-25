@@ -1,3 +1,7 @@
+"""
+This module defines a square with private size
+by Oigbochie Blessed
+"""
 #!/usr/bin/python3
 class Square:
     """
