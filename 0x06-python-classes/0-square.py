@@ -3,6 +3,8 @@
 This module by Blessed
 ALXSE python clases
 """
+
+
 class Square:
     """
     This class defines a square.
