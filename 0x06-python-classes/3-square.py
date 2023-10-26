@@ -3,6 +3,8 @@
 Author: Oigbochie Blessed
 Task 2.
 """
+
+
 class Square:
     """
     This is a class of a square with size

@@ -3,6 +3,8 @@
 This module defines a square with private size
 by Oigbochie Blessed
 """
+
+
 class Square:
     """
     This class defines a square
