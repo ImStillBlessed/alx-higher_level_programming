@@ -3,8 +3,6 @@
 Author: Oigbochie Blessed
 Task 2.
 """
-
-
 class Square:
     """
     This is a class of a square with size
@@ -23,8 +21,7 @@ class Square:
         Raises:
             TypeError: If the size given is not a number, or position
                 is not a tuple of positive integers.
-            ValueError: If the value is less than 0 in either size or
-		position.
+            ValueError: If the value is less than 0 in either size or position.
         """
         self.size = size
         self.position = position
@@ -51,6 +48,7 @@ class Square:
             i += 1
         if self.__size == 0:
             print("")
+
     @property
     def size(self):
         """
@@ -68,12 +66,13 @@ class Square:
         Returns: The square area
         """
         return (self._Square__size ** 2)
+
     @size.setter
     def size(self, value):
         if not isinstance(value, int):
             raise ValueError("size must be an integer")
         if value < 0:
-             raise TypeError("size must be >= 0")
+            raise TypeError("size must be >= 0")
         self.__size = value
 
     @property
@@ -85,10 +84,11 @@ class Square:
             int: the value of the __size attribute.
         """
         return self.__position
+
     @position.setter
     def position(self, value):
         if not isinstance(value, tuple) or len(value) != 2:
-            raise TypeError("position must be a tuple of 2 positive integer")
+            raise TypeError("position must be a tuple of 2 positive integers")
         if not all(isinstance(v, int) and v >= 0 for v in value):
-            raise TypeError("position must be a tuple of 2 positive integer")
+            raise TypeError("position must be a tuple of 2 positive integers")
         self.__position = value
