@@ -3,6 +3,8 @@
 Author: Oigbochie Blessed
 Task 2.
 """
+
+
 class Square:
     """
     This is a class of a square with size
@@ -30,24 +32,25 @@ class Square:
         """
         This method prints the square using #
         """
-        q = 0
-        while q < self.__position[1]:
-            print("")
-            q += 1
-        i = 0
-        while i < self.__size:
-            j = 0
-            p = 0
-            while j < self.__size:
-                while p < self.__position[0]:
-                    print(" ", end="")
-                    p += 1
-                print("#", end="")
-                j += 1
-            print("")
-            i += 1
         if self.__size == 0:
             print("")
+        else:
+            q = 0
+            while q < self.__position[1]:
+                print("")
+                q += 1
+            i = 0
+            while i < self.__size:
+                j = 0
+                p = 0
+                while j < self.__size:
+                    while p < self.__position[0]:
+                        print(" ", end="")
+                        p += 1
+                    print("#", end="")
+                    j += 1
+                print("")
+                i += 1
 
     @property
     def size(self):
