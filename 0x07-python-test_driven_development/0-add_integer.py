@@ -1,5 +1,7 @@
 #!/usr/bin/python3
 """This module adds two integers a and b
+Authour:
+    Oigbochie Blessed
 """
 def add_integer(a, b=98):
     """
