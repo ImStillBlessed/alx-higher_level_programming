@@ -1,23 +1,44 @@
-The add_interger_module
-=======================
-using ``add_integer``
----------------------
+>>> add_integer = __import__('0-add_integer').add_integer
 
-This is a text file in reStructuresText format. 
->>> from 0-add_integer import add_integer
->>> add_integer(1, 1)
-2
->>> add_integer(0, 0)
-0
->>> add_integer("1", 2)
-"a must be an integer"
->>> add_integer(2, ["house", 2])
-"b must be an integer"
->>> add_integer(1e100, 4)
-1e100
->>> add_integer(7, 7)
-14
->>> add_integer(-50, 2)
--48
->>> add_integer(-4, -4)
--8
+#simple tests
+>>> add_integer(1, 2)
+3
+
+>>> add_integer(-100, 50)
+-50
+
+>>> add_integer(100, -50)
+50
+
+>>> add_integer(-100, -50)
+-150
+
+>>> add_integer(10.4, 5)
+15
+
+>>> add_integer(10, 5.4)
+15
+
+>>> add_integer(10.5, 5.5)
+15
+
+#Error cases
+>>> add_integer("school")
+Traceback (most recent call last):
+	...
+TypeError: a must be an integer
+
+>>> add_integer(1, "school")
+Traceback (most recent call last):
+        ...
+TypeError: b must be an integer
+
+>>> add_integer(None, None)
+Traceback (most recent call last):
+        ...
+TypeError: a must be an integer
+
+>>> add_integer(10, float('nan'))
+Traceback (most recent call last):
+	...
+ValueError: cannot convert float NaN to integer
