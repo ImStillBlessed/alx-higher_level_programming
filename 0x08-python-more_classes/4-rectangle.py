@@ -45,7 +45,7 @@ class Rectangle():
         Returns: string representations of the rectangle.
         """
         wid = str(self.__width)
-        hei = str(self.__width)
+        hei = str(self.__height)
         return "Rectangle({}, {})".format(wid, hei)
 
     def area(self):
