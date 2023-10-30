@@ -44,9 +44,9 @@ class Rectangle():
 
         Returns: string representations of the rectangle.
         """
-        width = str(self.__width)
-        height = str(self.__width)
-        return "Rectangle({}, {})".format(width, height)
+        wid = str(self.__width)
+        hei = str(self.__width)
+        return "Rectangle({}, {})".format(wid, hei)
 
     def area(self):
         """
