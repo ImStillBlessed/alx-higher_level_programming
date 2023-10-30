@@ -1,0 +1,23 @@
+The add_interger_module
+=======================
+using ``add_integer``
+---------------------
+
+This is a text file in reStructuresText format. 
+>>> from 0-add_integer import add_integer
+>>> add_integer(1, 1)
+2
+>>> add_integer(0, 0)
+0
+>>> add_integer("1", 2)
+"a must be an integer"
+>>> add_integer(2, ["house", 2])
+"b must be an integer"
+>>> add_integer(1e100, 4)
+1e100
+>>> add_integer(7, 7)
+14
+>>> add_integer(-50, 2)
+-48
+>>> add_integer(-4, -4)
+-8
