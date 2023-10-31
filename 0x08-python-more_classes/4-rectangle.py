@@ -44,7 +44,9 @@ class Rectangle():
 
         Returns: string representations of the rectangle.
         """
-        return "Rectangle(" + str(self.__width) + ", " +  str(self.__height) + ")"
+        wid = str(self.__width)
+        hei = str(self.__height)
+        return "Rectangle({}, {})".format(wid, hei)
 
     def area(self):
         """
@@ -99,4 +101,3 @@ class Rectangle():
         if value < 0:
             raise ValueError("haight must be >= 0")
         self.__height = value
-

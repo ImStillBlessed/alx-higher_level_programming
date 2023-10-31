@@ -40,7 +40,9 @@ class Rectangle():
         """
         if self.__height == 0 or self.__width == 0:
             return ""
-        return ("\n".join([str(self.print_symbol) * self.__width for _ in range(self.__height)]))
+        wid = self.__width
+        hei = self.__height
+        return ("\n".join([str(self.print_symbol) * wid for _ in range(hei)]))
 
     def __repr__(self):
         """
@@ -48,7 +50,9 @@ class Rectangle():
 
         Returns: string representations of the rectangle.
         """
-        return "Rectangle(" + str(self.__width) + ", " +  str(self.__height) + ")"
+        wid = str(self.__width)
+        hei = str(self.__height)
+        return "Rectangle({}, {})".format(wid, hei)
 
     def __del__(self):
         print("Bye rectangle...")
@@ -107,4 +111,3 @@ class Rectangle():
         if value < 0:
             raise ValueError("haight must be >= 0")
         self.__height = value
-
