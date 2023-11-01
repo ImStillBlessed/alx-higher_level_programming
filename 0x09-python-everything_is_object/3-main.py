@@ -1,3 +1,4 @@
-s1 = "string"
+s1 = [1, 2, 3]
 s2 = s1
-print(s1 == s2)
+s1.append(4)
+print(s2)
