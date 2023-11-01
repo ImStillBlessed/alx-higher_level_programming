@@ -14,6 +14,13 @@ class LockedClass:
             none
     """
     def __setattr__(self, name, value):
+        """
+        Args:
+            name (str): the name of the object <firstname>
+            value (str): value passed to the firstname
+        Raises:
+            AttributeError: if the attribute is mot first name
+        """
         if name != 'first_name':
             error = "'LockedClass' object has no attribute '{}'".format(name)
             raise AttributeError(error)
