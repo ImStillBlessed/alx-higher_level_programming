@@ -1,4 +1,7 @@
-s1 = [1, 2, 3]
-s2 = s1
-s1.append(4)
-print(s2)
+def ince(x, v):
+    x = v
+
+a = [1, 3]
+b = [2, 4]
+ince(a, b)
+print(a)
