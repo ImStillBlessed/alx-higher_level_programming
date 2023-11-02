@@ -2,7 +2,6 @@
 import sys
 
 def is_safe(board, row, col):
-    # Check the column above for queens
     for i in range(row):
         if board[i] == col or \
            board[i] - i == col - row or \
@@ -27,7 +26,7 @@ def solve_nqueens(N):
 
 def print_solutions(solutions):
     for solution in solutions:
-        print([[i, solution[i]] for i in range(len(solution)])
+        print([[i, solution[i]] for i in range(len(solution))])
         print()
 
 if __name__ == "__main__":
@@ -44,5 +43,5 @@ if __name__ == "__main__":
     if N < 4:
         print("N must be at least 4")
         sys.exit(1)
-
-    solutions
+    solutions = solve_nqueens(N)
+    print_solutions(solutions)
