@@ -1,40 +1,54 @@
 #!/usr/bin/python3
-import sys
+global N
+N = 4
 
-def is_safe(board, row, col):
-    # Check the column on top for queens
-    for i in range(row):
-        if board[i][col] == 1:
-            return False
 
-    # Check the upper-left diagonal for queens
-    for i, j in zip(range(row, -1, -1), range(col, -1, -1)):
-        if board[i][j] == 1:
-            return False
+def printSolution(board):
+	for i in range(N):
+		for j in range(N):
+			if board[i][j] == 1:
+				print("Q",end=" ")
+			else:
+				print(".",end=" ")
+		print()
+def isSafe(board, row, col):
+	for i in range(col):
+		if board[row][i] == 1:
+			return False
+	for i, j in zip(range(row, -1, -1),
+					range(col, -1, -1)):
+		if board[i][j] == 1:
+			return False
 
-    # Check the upper-right diagonal for queens
-    for i, j in zip(range(row, -1, -1), range(col, len(board))):
-        if board[i][j] == 1:
-            return False
+	# Check lower diagonal on left side
+	for i, j in zip(range(row, N, 1),
+					range(col, -1, -1)):
+		if board[i][j] == 1:
+			return False
 
-    return True
+	return True
 
-def solve_nqueens(n):
-    if n < 4:
-        print("N must be at least 4")
-        sys.exit(1)
 
-    def solve(board, row):
-        if row == n:
-            for r in board:
-                print([i, r.index(1)] for i in range(n))
-            print()
-            return
-        for col in range(n):
-            if is_safe(board, row, col):
-                board[row][col] = 1
-                solve(board, row + 1)
-                board[row][col] = 0
+def solveNQUtil(board, col):
+	if col >= N:
+		return True
+	for i in range(N):
 
-    board = [[0 for _ in range(n)] for _ in range(n)]
-    solve(board, 0)
+		if isSafe(board, i, col):
+			board[i][col] = 1
+			if solveNQUtil(board, col + 1) == True:
+				return True
+			board[i][col] = 0
+	return False
+def solveNQ():
+	board = [[0, 0, 0, 0],
+			[0, 0, 0, 0],
+			[0, 0, 0, 0],
+			[0, 0, 0, 0]]
+
+	if solveNQUtil(board, 0) == False:
+		print("Solution does not exist")
+		return False
+
+	printSolution(board)
+	return True
