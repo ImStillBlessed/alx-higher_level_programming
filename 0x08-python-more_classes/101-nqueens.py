@@ -1,54 +1,48 @@
 #!/usr/bin/python3
-global N
-N = 4
+import sys
+def is_safe(board, row, col):
+    # Check the column on top for queens
+    for i in range(row):
+        if board[i] == col or \
+           board[i] - i == col - row or \
+           board[i] + i == col + row:
+            return False
+    return True
 
+def print_solutions(solutions):
+    for solution in solutions:
+        for row in solution:
+            print([row, solution.index(row)])
+        print()
 
-def printSolution(board):
-	for i in range(N):
-		for j in range(N):
-			if board[i][j] == 1:
-				print("Q",end=" ")
-			else:
-				print(".",end=" ")
-		print()
-def isSafe(board, row, col):
-	for i in range(col):
-		if board[row][i] == 1:
-			return False
-	for i, j in zip(range(row, -1, -1),
-					range(col, -1, -1)):
-		if board[i][j] == 1:
-			return False
+def solve_nqueens(N):
+    if N < 4:
+        print("N must be at least 4")
+        sys.exit(1)
 
-	# Check lower diagonal on left side
-	for i, j in zip(range(row, N, 1),
-					range(col, -1, -1)):
-		if board[i][j] == 1:
-			return False
+    def solve(board, row, solutions):
+        if row == N:
+            solutions.append(board[:])
+            return
+        for col in range(N):
+            if is_safe(board, row, col):
+                board.append(col)
+                solve(board, row + 1, solutions)
+                board.pop()
 
-	return True
+    solutions = []
+    solve([], 0, solutions)
+    print_solutions(solutions)
 
+if __name__ == "__main__":
+    if len(sys.argv) != 2:
+        print("Usage: nqueens N")
+        sys.exit(1)
 
-def solveNQUtil(board, col):
-	if col >= N:
-		return True
-	for i in range(N):
+    try:
+        N = int(sys.argv[1])
+    except ValueError:
+        print("N must be a number")
+        sys.exit(1)
 
-		if isSafe(board, i, col):
-			board[i][col] = 1
-			if solveNQUtil(board, col + 1) == True:
-				return True
-			board[i][col] = 0
-	return False
-def solveNQ():
-	board = [[0, 0, 0, 0],
-			[0, 0, 0, 0],
-			[0, 0, 0, 0],
-			[0, 0, 0, 0]]
-
-	if solveNQUtil(board, 0) == False:
-		print("Solution does not exist")
-		return False
-
-	printSolution(board)
-	return True
+    solve_nqueens(N)
