@@ -7,6 +7,7 @@ Author:
 import math
 
 def matrix_divided(matrix, div):
+
     """
     this function divides the integers in the matrix
 
