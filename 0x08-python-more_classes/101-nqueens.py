@@ -1,3 +1,4 @@
+#!/usr/bin/python
 import sys
 
 def is_safe(board, row, col):
