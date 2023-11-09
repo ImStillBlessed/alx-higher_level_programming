@@ -14,6 +14,12 @@ class Student():
         age (int): the age of the student.
     """
     def __init__(self, first_name, last_name, age):
+        """
+        Student objecr constructor
+        first_name (str): must be a str.
+        last_name : must be a str.
+        age : must be an integer.
+        """
         self.first_name = first_name
         self.last_name = last_name
         self.age = age
