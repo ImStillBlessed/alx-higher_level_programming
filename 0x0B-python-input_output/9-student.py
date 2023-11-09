@@ -21,6 +21,8 @@ class Student():
     def to_json(self):
         """
         This function returns the dict representstion of an obj.
+        Returns:
+            the json dictionary representation of class Student.
         """
         json_dict = {
             'first_name' = self.first_name,
