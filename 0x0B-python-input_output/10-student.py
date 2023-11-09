@@ -24,15 +24,21 @@ class Student():
         self.last_name = last_name
         self.age = age
 
-    def to_json(self):
+    def to_json(self, attrs=None):
         """
         This function returns the dict representstion of an obj.
         Returns:
             the json dictionary representation of class Student.
         """
-        json_dict = {
+        if attrs is None:
+            return {
                 'first_name': self.first_name,
                 'last_name': self.last_name,
                 'age': self.age
-        }
-        return json_dict
+            }
+        else:
+            json_dict = {}
+            for attr in attrs:
+                if hasattr(self, attr):
+                    json_dict[attr] = getattr(self, attr)
+            return json_dict
