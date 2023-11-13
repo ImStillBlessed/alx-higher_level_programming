@@ -5,26 +5,7 @@ Author:
 """
 
 
-class Base:
-    """
-    This is the base class for managing id
-    Attributes:
-        nb_object
-        id
-    """
-    __nb_objects = 0
-
-    def __init__(self, id=None):
-        """
-        Class constructor
-        Args:
-            id
-        """
-        if id is not None:
-            self.id = id
-        else:
-            Base.__nb_objects += 1
-            self.id = Base.__nb_objects
+from models.base import Base
 
 
 class Rectangle(Base):
@@ -133,11 +114,28 @@ class Rectangle(Base):
             raise ValueError("x must be >= 0")
         self.__y = value
 
-    def update(self, *args):
+    def update(self, *args, **kwargs):
         """
         updates the arguments in order
         no-keyword arguments
+        and key-worded-arguments
         """
         attributes = ['id', 'width', 'height', 'x', 'y']
-        for i in range(len(args)):
-            setattr(self, attributes[i], args[i])
+        if args:
+            for i in range(len(args)):
+                setattr(self, attributes[i], args[i])
+        if kwargs:
+            for key, value in kwargs.items():
+                if key in attributes:
+                    setattr(self, key, value)
+
+    def to_dictionary(self):
+        """Pastss the valuss of attribuyes in a dictionary
+        """
+        return {
+            'id' : self.id,
+            'width' : self.width,
+            'height' : self.height,
+            'x' : self.x,
+            'y' : self.y
+        }
