@@ -35,7 +35,7 @@ class Square(Rectangle):
         """
         Overrides the __str__ method
         """
-        return(f"[Square] ({self.id}) {self.x}/{self.y} - {self.width}")
+        return (f"[Square] ({self.id}) {self.x}/{self.y} - {self.width}")
 
     def update(self, *args, **kwargs):
         """
@@ -54,8 +54,8 @@ class Square(Rectangle):
         """returns the dictionary representaion of the square
         """
         return {
-            'id' : self.id,
-            'size' : self.size,
-            'x' : self.x,
-            'y' : self.y
+            'id': self.id,
+            'size': self.size,
+            'x': self.x,
+            'y': self.y
         }

@@ -48,7 +48,7 @@ class Rectangle(Base):
         """
         row = self.__width
         col = self.__height
-        return(f"[Rectangle] ({self.id}) {self.x}/{self.y} - {row}/{col}")
+        return (f"[Rectangle] ({self.id}) {self.x}/{self.y} - {row}/{col}")
 
     @property
     def width(self):
@@ -133,9 +133,9 @@ class Rectangle(Base):
         """Pastss the valuss of attribuyes in a dictionary
         """
         return {
-            'id' : self.id,
-            'width' : self.width,
-            'height' : self.height,
-            'x' : self.x,
-            'y' : self.y
+            'id': self.id,
+            'width': self.width,
+            'height': self.height,
+            'x': self.x,
+            'y': self.y
         }
