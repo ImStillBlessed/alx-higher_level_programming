@@ -101,7 +101,8 @@ class Base:
         try:
             with open(filename, 'r') as file:
                 reader = csv.reader(file)
-                return [cls.create(**{k: int(v) for k, v in zip(cls.attributes, row)}) for row in reader]
+                return [cls.create(**{k: int(v) for k, v in\
+                        zip(cls.attributes, row)}) for row in reader]
         except FileNotFoundError:
             return []
 
