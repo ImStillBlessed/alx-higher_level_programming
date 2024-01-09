@@ -6,6 +6,7 @@ Author:
 
 
 import json
+import csv
 import turtle
 
 
@@ -49,7 +50,7 @@ class Base:
         filename = cls.__name__ + ".json"
         with open(filename, "w", encoding="UTF-8") as a_file:
             if list_objs is None:
-                file.write("[]")
+                a_file.write("[]")
             else:
                 dictionaries = [obj.to_dictionary() for obj in list_objs]
             a_file.write(cls.to_json_string(dictionaries))
