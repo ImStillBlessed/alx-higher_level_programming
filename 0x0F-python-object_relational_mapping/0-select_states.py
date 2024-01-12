@@ -13,15 +13,15 @@ Your code should not be executed when imported
 from sys import argv
 import MySQLdb
 
-if __name__ = "__main__":
+if __name__ == "__main__":
     """
     grant access to the db
     """
     db = MySQLdb.connect(host='localhost', user=argv[1], passwd=argv[2], db=argv[3], port=3306)
     cur = db.cursor()
 
-    cur.execute("SELECT id, name FROM states ORDER BY id ASC")
-    states = cur.fetchall()
-    for state in states:
+    cur.execute("SELECT * FROM states")
+    states_list = cur.fetchall()
+    for state in states_list:
         print(state)
     db.close()
