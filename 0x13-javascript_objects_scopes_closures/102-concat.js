@@ -3,7 +3,6 @@
 const fs = require('fs');
 
 if (process.argv.length !== 5) {
-  console.error('Usage: ./102-concat.js <fileA> <fileB> <fileC>');
   process.exit(1);
 }
 
@@ -33,7 +32,6 @@ fs.readFile(fileA, 'utf8', (errA, dataA) => {
         process.exit(1);
       }
 
-      console.log(`The content of ${fileA} and ${fileB} has been concatenated to ${fileC}`);
     });
   });
 });
