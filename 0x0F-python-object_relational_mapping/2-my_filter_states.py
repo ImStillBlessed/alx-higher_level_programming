@@ -20,8 +20,9 @@ if __name__ == "__main__":
                          passwd=argv[2], db=argv[3], port=3306)
     cur = db.cursor()
     state_name = argv[4]
-    cur.execute("SELECT id, name FROM states \
-            WHERE name = %s ORDER BY states.id ASC", (state_name,))
+    sql_query = "SELECT id, name FROM states \
+            WHERE name = {} ORDER BY states.id ASC".format(state_name)
+    cur.excecute(sql_query)
     states_list = cur.fetchall()
     for state in states_list:
         print(state)
