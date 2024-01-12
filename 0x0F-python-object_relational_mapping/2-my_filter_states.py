@@ -9,21 +9,23 @@ database name and the state name.
 You must use the module MySQLdb (import MySQLdb)
 Your script should connect to a MySQL server running on localhost at port 3306
 """
-from sys import argv
 import MySQLdb
+from sys import argv
 
-if __name__ == "__main__":
+if __name__ == '__main__':
     """
-    grant access to the db
+    Access to the database and get the states
+    from the database.
     """
-    db = MySQLdb.connect(host='localhost', user=argv[1], \
-                         passwd=argv[2], db=argv[3], port=3306)
+
+    db = MySQLdb.connect(host="localhost", user=argv[1], port=3306,
+                         passwd=argv[2], db=argv[3])
+
     cur = db.cursor()
-    state_name = argv[4]
-    sql_query = "SELECT id, name FROM states \
-            WHERE name = {} ORDER BY states.id ASC".format(state_name)
-    cur.excecute(sql_query)
-    states_list = cur.fetchall()
-    for state in states_list:
-        print(state)
-    db.close()
+    cur.execute("SELECT * FROM states \
+                 WHERE name LIKE BINARY '{}' \
+                 ORDER BY states.id ASC".format(argv[4]))
+    rows = cur.fetchall()
+
+    for row in rows:
+        print(row)
