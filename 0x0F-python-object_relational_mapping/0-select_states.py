@@ -10,19 +10,18 @@ Results must be sorted in ascending order by states.id
 Results must be displayed as they are in the example below
 Your code should not be executed when imported
 """
-import sys
+from sys import argv
 import MySQLdb
 
-if len(sys.argv) != 4:
-    sys.exit(1)
+if __name__ = "__main__":
+    """
+    grant access to the db
+    """
+    db = MySQLdb.connect(host='localhost', user=argv[1], passwd=argv[2], db=argv[3], port=3306)
+    cur = db.cursor()
 
-username, password, database = sys.argv[1], sys.argv[2], sys.argv[3]
-
-db = MySQLdb.connect(host='localhost', user=username, passwd=password, db=database)
-cur = db.cursor()
-
-cur.execute("SELECT id, name FROM states ORDER BY id ASC")
-states = cur.fetchall()
-for state in states:
-    print(state)
-db.close()
+    cur.execute("SELECT id, name FROM states ORDER BY id ASC")
+    states = cur.fetchall()
+    for state in states:
+        print(state)
+    db.close()
