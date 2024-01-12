@@ -17,14 +17,12 @@ if __name__ == "__main__":
     state_name = argv[4]
 
 
-    sql_query = "SELECT c.id, c.name, s.name \
-            FROM cities AS c \
-            INNER JOIN state AS s \
-            ON c.state_id = s.id \
-            ORDER BY c.id ASC"
+    sql_query = "SELECT name \
+            FROM cities WHERE state_id = \
+            (SELECT id FROM states WHERE name = %s)"
 
-    cur.execute(sql_query)
+    cur.execute(sql_query, (state_name,))
     rows = cur.fetchall()
     for row in rows:
-        print(row)
+        print(' '.join(map(str, row)))
     db.close()
