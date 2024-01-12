@@ -21,7 +21,7 @@ username, password, database = sys.argv[1], sys.argv[2], sys.argv[3]
 db = MySQLdb.connect(host='localhost', user=username, passwd=password, db=database)
 cur = db.cursor()
 
-cur.excecute("SELECT id, state FROM states ORDER BY id ASC")
+cur.execute("SELECT id, name FROM states ORDER BY id ASC")
 states = cur.fetchall()
 for state in states:
     print(state)
