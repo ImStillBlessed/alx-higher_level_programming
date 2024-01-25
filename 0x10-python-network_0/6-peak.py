@@ -3,6 +3,7 @@
  This is a module for the function find_peak()
  """
 
+
 def find_peak(list_of_integers):
     """
     Finds a peak in a list of unsorted integers using divide and conquer.
@@ -13,6 +14,7 @@ def find_peak(list_of_integers):
         return None
 
     return find_peak_helper(list_of_integers, 0, len(list_of_integers) - 1)
+
 
 def find_peak_helper(arr, start, end):
     """
