@@ -10,5 +10,5 @@ if __name__ == "__main__":
 
     page = requests.get(url)
     print(f"""Body response:
-- type: {type(page.content)}
+- type: {type(page.text)}
 - content: {page.content.decode('utf-8')}""" )
