@@ -10,8 +10,7 @@ request(url, function (error, response, body) {
   if (error) {
     console.error(error);
   } else {
-    const data = JSON.parse(body);
-    fs.writeFile(filePath, data, err => {
+    fs.writeFile(filePath, body, { encoding: 'utf-8' }, (err) => {
       if (err) {
         console.error(err);
       }
